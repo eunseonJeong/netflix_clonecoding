@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { StButton, StFont, StSmfont } from "./Singstyled";
 import CheckboxLabels from "../../components/CheckboxLabels";
-import { ESInput, useInput } from "../../hook/useInput";
+import { ESInput } from "../../hook/useInput";
 import { Helmet } from "react-helmet";
 import { __signUp } from "../../redux/modules/loginSlice";
 import { useDispatch } from "react-redux";
