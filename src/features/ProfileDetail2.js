@@ -1,22 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { instance } from "../../axios/api";
-import { ESInput, useInput } from "../../hook/useInput";
-import { StSmfont } from ".././Signup/Singstyled";
+import { ESInput } from "../hook/useInput";
+import { StSmfont } from "../pages/Signup/Singstyled";
 import ProfileButton from "./ProfileButton";
 
 function ProfileDetail() {
-
-  const token = decodeURI(document.cookie).replace("token=Bearer ", "");
-
-  const [newProfile,setNewProfile] = useState('');
+  const [newProfile, setNewProfile] = useState("");
 
   const ChgInputHandler = (e) => {
     setNewProfile(e.target.value);
   };
 
-  const submitButtonHandler = e => {
+  const submitButtonHandler = (e) => {
     e.preventDefault();
   };
 
@@ -26,13 +21,13 @@ function ProfileDetail() {
         <StHeader>
           <StImage key="netflix-profile1.png" src="img/netflix-profile1.png" />
           <form onSubmit={submitButtonHandler}>
-          <ESInput
-            type="text"
-            placeholder="닉네임을 입력해주세요."
-            value={newProfile.profileName}
-            onChange={ChgInputHandler}
-            required
-          />        
+            <ESInput
+              type="text"
+              placeholder="닉네임을 입력해주세요."
+              value={newProfile.profileName}
+              onChange={ChgInputHandler}
+              required
+            />
           </form>
         </StHeader>
 
@@ -45,7 +40,6 @@ function ProfileDetail() {
           <StSmfont>
             이 프로필에서는 모든 관람등급의 콘텐츠가 표시됩니다.
           </StSmfont>
-          {/* 성인이냐 청소년이냐 -> 성인이면 모든 관람msg 아니면 청소년 관람자 */}
         </div>
 
         <div>

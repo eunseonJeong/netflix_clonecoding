@@ -5,20 +5,16 @@ import { instance } from "../../axios/api";
 export const __getDetail = createAsyncThunk(
   "getDetail",
   async (contentIdx, thunkAPI) => {
-    console.log(contentIdx);
     try {
-      const response = await instance.get(`/movies/detail/${contentIdx}`,
-        {
-          headers: {
-            Authorization: decodeURI(document.cookie).replace("token=", ""),
-          },
+      const response = await instance.get(`/movies/detail/${contentIdx}`, {
+        headers: {
+          Authorization: decodeURI(document.cookie).replace("token=", ""),
+        },
 
-          params: {
-            contentIdx: `${contentIdx}`
-          }
-        }
-      )
-      console.log(response.data);
+        params: {
+          contentIdx: `${contentIdx}`,
+        },
+      });
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -54,5 +50,4 @@ export const detailSlice = createSlice({
   },
 });
 
-export const { } = detailSlice.actions;
 export default detailSlice.reducer;
