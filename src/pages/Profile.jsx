@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import Button from "../../components/elem/Button";
-import { modalOnOff } from "../../redux/modules/modalSlice";
+import Button from "../components/elem/Button";
+import { modalOnOff } from "../redux/modules/modalSlice";
 import {
   ModalBackground,
   ModalContent,
   ModalOpenTrigger,
-} from "../../components/elem/Modal";
-import ProfileDetail from "./ProfileDetail";
+} from "../components/elem/Modal";
+import ProfileDetail from "../features/ProfileDetail";
 import { useNavigate } from "react-router-dom";
 import { HiOutlinePlus } from "react-icons/hi";
 
@@ -22,20 +22,19 @@ function Profile() {
   //모달
   const modalState = useSelector((state) => state.modalSlice.modal);
 
-
   const onClickDetail = () => {
     dispatch(modalOnOff(modalState));
   };
 
   const onClickBtn = () => {
     // dispatch(modalOnOff(modalState));
-    navi('/')
-  }
+    navi("/");
+  };
 
   const token = decodeURI(document.cookie).replace("token=Bearer ", "");
   console.log("Profile.jsx token value---->", token);
 
-return (
+  return (
     <StDiv>
       <p>Netfilx를 시청할 프로필을 선택하세요.</p>
 
@@ -45,26 +44,28 @@ return (
 
       <StContainer>
         <StSlideContainer>
-        <HiOutlinePlus onClick={onClickDetail}
-        style={{
-          width:'80px',
-          height:'80px',
-          cursor: 'pointer'
-        }}/>
-
+          <HiOutlinePlus
+            onClick={onClickDetail}
+            style={{
+              width: "80px",
+              height: "80px",
+              cursor: "pointer",
+            }}
+          />
         </StSlideContainer>
-        <StSlide src='img/netflix-profile2.png' onClick={onClickBtn} 
-        style={{
-          width:'80px',
-          height:'80px',
-        }}/>
-
+        <StSlide
+          src="img/netflix-profile2.png"
+          onClick={onClickBtn}
+          style={{
+            width: "80px",
+            height: "80px",
+          }}
+        />
       </StContainer>
-      
-      <ModalContent backgroundColor='transparent'>
-      <ProfileDetail />
+
+      <ModalContent backgroundColor="transparent">
+        <ProfileDetail />
       </ModalContent>
-      
     </StDiv>
   );
 }
@@ -79,10 +80,10 @@ const StDiv = styled.div`
 
   height: 70vh;
   width: 300px;
-  margin: 0 auto; 
-  padding: 40px; 
-  border-radius: 5px; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;

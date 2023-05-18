@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { StButton, StFont, StSmfont } from "./Singstyled";
-import CheckboxLabels from "../../components/CheckboxLabels";
+import CheckboxLabels from "../../features/CheckboxLabels";
 import { ESInput } from "../../hook/useInput";
 import { Helmet } from "react-helmet";
 import { __signUp } from "../../redux/modules/loginSlice";

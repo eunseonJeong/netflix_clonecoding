@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
-import Space from "../elem/Space";
+import Space from "../components/elem/Space";
 
 function VideoPlayer() {
   const [currentUrl, setCurrentUrl] = useState(videoUrls[0]);

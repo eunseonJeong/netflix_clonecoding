@@ -7,7 +7,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Movies from "../pages/Movies";
 import Detail from "../pages/Detail";
-import Profile from "../pages/Profile/Profile";
+import Profile from "../pages/Profile";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
