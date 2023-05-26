@@ -4,7 +4,6 @@ import styled from "styled-components";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { ESInput } from "../hook/useInput";
-import { cookies } from "../shared/cookies";
 import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
 import { __login } from "../redux/modules/loginSlice";
@@ -29,11 +28,16 @@ function Login() {
 
   const submitBtnHandler = async (e) => {
     e.preventDefault();
-    const response = await dispatch(__login(user));
-    if (response.type === "LOGIN/fulfilled") {
-      dispatch(isLoginActions.login());
-      alert("로그인 되었습니다.");
-      navi("/profile");
+    try {
+      const response = await dispatch(__login(user));
+      if (response.type === "LOGIN/fulfilled") {
+        dispatch(isLoginActions.login());
+        alert("로그인 되었습니다.");
+        navi("/profile");
+      }
+    } catch (error) {
+      const errorMsg = error.response.data.errorMessage;
+      alert(`${errorMsg}`);
     }
   };
 

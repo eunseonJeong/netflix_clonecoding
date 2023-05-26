@@ -12,6 +12,7 @@ function Signup3() {
 
   const onNavigate = () => {
     navi("/login");
+    alert("회원가입에 성공했습니다.");
   };
   return (
     <>
@@ -55,7 +56,6 @@ function Signup3() {
                   </tr>
                   <tr>
                     <th scope="row">해상도</th>
-                    {/* <td colspan="2">✔️</td> */}
                     <td>✔️</td>
                     <td>✔️</td>
                     <td>✔️</td>

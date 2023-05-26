@@ -30,11 +30,16 @@ function Signup() {
 
   const submitBtnHandler = async (e) => {
     e.preventDefault();
-    const response = await dispatch(__signUp(user));
-    if (response.type === "SIGN_UP/rejected") {
-      navi("/signup1");
-    } else {
-      navi("/signup2");
+    try {
+      const response = await dispatch(__signUp(user));
+      if (response.type === "SIGN_UP/rejected") {
+        navi("/signup1");
+      } else {
+        navi("/signup2");
+      }
+    } catch (error) {
+      const errorMsg = error.response.data.errorMessage;
+      alert(`${errorMsg}`);
     }
   };
 
